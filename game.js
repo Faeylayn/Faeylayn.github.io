@@ -82,6 +82,7 @@ Game.prototype.checkCollisions = function () {
           this.lives -= 1
           if (this.lives < 1) {
             clearInterval(window.interval)
+            $(".you-win").html("YOU LOSE!")
             $(".stats").append("<button class='new-game'>New Game!</button>")
           }
           playerObjs[j].relocate()
@@ -100,6 +101,11 @@ Game.prototype.step = function (ctx) {
   this.checkCollisions();
   this.draw(ctx);
   this.ship.drawNose(ctx);
+  if (this.asteroids.length === 0) {
+    $(".you-win").html("YOU ARE A WINNER!")
+    clearInterval(window.interval)
+    $(".stats").append("<button class='new-game'>New Game!</button>")
+  }
 }
 
 

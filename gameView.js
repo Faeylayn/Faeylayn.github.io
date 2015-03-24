@@ -27,6 +27,7 @@ GameView.prototype.drawInstructions = function () {
 GameView.prototype.start = function() {
   var img = new Image();
   var ctx = this.ctx
+  $(".you-win").empty()
 
   // img.onload = function () {
   //   ctx.drawImage(img, 0, 0);
