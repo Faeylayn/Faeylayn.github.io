@@ -19,12 +19,12 @@ Game.DEFAULT_COLOR = "#00FF00"
 // Game.DEFAULT_RADIUS = Math.sqrt((((this.DIM_X * this.DIM_Y)/4)/this.numAsteroids)/Math.PI)
 Game.DEFAULT_RADIUS = 50
 Game.SHIPCOLOR = "#FE2E2E"
-Game.SHIPRADIUS = 25
+Game.SHIPRADIUS = 15
 
 Game.prototype.addAsteroids = function() {
   for (var i = 0; i < this.numAsteroids; i ++) {
     var startPosition = Asteroids.Util.randomPosition(this.DIM_X, this.DIM_Y)
-    this.asteroids.push(new Asteroid(startPosition[0], startPosition[1], this, 3, 50))
+    this.asteroids.push(new Asteroid(startPosition[0], startPosition[1], this, 3, 40))
   };
 };
 

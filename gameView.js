@@ -11,26 +11,30 @@ var GameView = Asteroids.GameView = function(asteroidCanvas, game) {
     left: false,
     right: false,
   };
-  this.fire = false
+  this.fire = false;
+  this.pause = false;
 };
 
 GameView.prototype.start = function() {
   var img = new Image();
   var ctx = this.ctx
-  img.src = 'http://wallpaper4me.com/images/wallpapers/asteroid_storm_train_w1.jpeg';
+
   // img.onload = function () {
   //   ctx.drawImage(img, 0, 0);
   // };
 
   this.bindKeyHandlers()
   window.interval = setInterval((function () {
+    if (this.pause === false) {
     ctx.drawImage(img, 0, 0)
        this.AdjustThrust();
        this.game.step(ctx);
       //  if (this.game.GameOver) {
       //    clearInterval(window.interval)
       //  }
+    }
      }).bind(this), 20);
+
    };
 
 GameView.prototype.bindKeyHandlers = function () {
@@ -65,6 +69,12 @@ GameView.prototype.parseKeycodeDown = function(keycode){
   if(keycode === 32){
     this.fire = true
   }
+
+  if(keycode === 13){
+    this.pause ? this.pause = false : this.pause = true
+
+  }
+
 }
 
 GameView.prototype.parseKeycodeUp = function(keycode){
