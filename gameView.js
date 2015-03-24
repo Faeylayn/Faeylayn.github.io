@@ -21,7 +21,7 @@ GameView.prototype.drawStats = function () {
 }
 
 GameView.prototype.drawInstructions = function () {
-  $(".instructions").html("The up/down arrows will change your thrust while the left/right arrows will change your directions. The spacebar will fire and the enter key will pause the game. You will being the game invulnerable, and you won't be able to fire until your invulnverability turns off.")
+  $(".instructions").html("The up/down arrows will change your thrust while the left/right arrows will change your directions. The spacebar will fire and the enter key will pause the game. You will begin the game invulnerable, and you won't be able to fire until your invulnverability turns off.")
 }
 
 GameView.prototype.start = function() {
