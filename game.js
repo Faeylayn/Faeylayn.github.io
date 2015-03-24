@@ -10,7 +10,9 @@ var Game = Asteroids.Game = function (dimx, dimy, numAsteroids) {
   this.asteroids = [];
   this.addAsteroids();
   this.ship = new Asteroids.Ship(this);
-  this.bullets = []
+  this.bullets = [];
+  this.lives = 5;
+  this.GameOver = false
 };
 
 Game.DEFAULT_COLOR = "#00FF00"
@@ -55,18 +57,18 @@ Game.prototype.moveObjects = function () {
   };
 };
 
-Game.prototype.wrap = function (posx, posy) {
-  if (posx > this.DIM_X) {
-    posx -= this.DIM_X
+Game.prototype.wrap = function (posx, posy, radius) {
+  if (posx > this.DIM_X + radius) {
+    posx -= this.DIM_X + radius
   }
-  if (posy > this.DIM_Y) {
-    posy -= this.DIM_Y
+  if (posy > this.DIM_Y + radius) {
+    posy -= this.DIM_Y + radius
   }
-  if (posx < 0) {
-    posx += this.DIM_X
+  if (posx < 0 - radius) {
+    posx += this.DIM_X + radius
   }
-  if (posy < 0) {
-    posy += this.DIM_Y
+  if (posy < 0 - radius) {
+    posy += this.DIM_Y + radius
   }
   return [posx, posy]
 };
@@ -76,9 +78,14 @@ Game.prototype.checkCollisions = function () {
   for (var i = 0; i < this.asteroids.length; i++){
     for (var j = 0; j < playerObjs.length; j++){
       if (this.asteroids[i].IsCollidedWith(playerObjs[j])){
-        if (playerObjs[j] instanceof Ship){
+        if (playerObjs[j] instanceof Ship && playerObjs[j].invuln === false ){
+          this.lives -= 1
+          if (this.lives < 1) {
+            clearInterval(window.interval)
+          }
           playerObjs[j].relocate()
-        } else {
+
+        } else if (playerObjs[j] instanceof Bullet) {
           this.handleAsteroid(i)
           this.removeBullet(j-1)
         }
@@ -93,6 +100,8 @@ Game.prototype.step = function (ctx) {
   this.draw(ctx);
   this.ship.drawNose(ctx);
 }
+
+
 
 Game.prototype.handleAsteroid = function (index) {
   if (this.asteroids[index].size > 1) {
