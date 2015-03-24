@@ -15,6 +15,15 @@ var GameView = Asteroids.GameView = function(asteroidCanvas, game) {
   this.pause = false;
 };
 
+GameView.prototype.drawStats = function () {
+  $(".stats").empty();
+  $(".stats").append("<li>Lives Left: " + this.game.lives + "</li>")
+}
+
+GameView.prototype.drawInstructions = function () {
+  $(".instructions").html("The up/down arrows will change your thrust while the left/right arrows will change your directions. The spacebar will fire and the enter key will pause the game. You will being the game invulnerable, and you won't be able to fire until your invulnverability turns off.")
+}
+
 GameView.prototype.start = function() {
   var img = new Image();
   var ctx = this.ctx
@@ -22,11 +31,12 @@ GameView.prototype.start = function() {
   // img.onload = function () {
   //   ctx.drawImage(img, 0, 0);
   // };
-
+  this.drawInstructions()
   this.bindKeyHandlers()
   window.interval = setInterval((function () {
     if (this.pause === false) {
     ctx.drawImage(img, 0, 0)
+    this.drawStats();
        this.AdjustThrust();
        this.game.step(ctx);
       //  if (this.game.GameOver) {
@@ -44,6 +54,16 @@ GameView.prototype.bindKeyHandlers = function () {
 
   $(document).keyup(function(event){
     this.parseKeycodeUp(event.keyCode)
+  }.bind(this))
+
+  $(".game-canvas").on("click", ".new-game", function (event) {
+    var canvasEl = $("#game-canvas")
+    canvasEl.empty()
+    canvasEl.height = 600;
+    canvasEl.width = 900;
+
+    this.game = new Asteroids.Game(canvasEl.width, canvasEl.height, 10)
+    this.start()
   }.bind(this))
 }
 

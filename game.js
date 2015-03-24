@@ -15,7 +15,7 @@ var Game = Asteroids.Game = function (dimx, dimy, numAsteroids) {
   this.GameOver = false
 };
 
-Game.DEFAULT_COLOR = "#00FF00"
+Game.DEFAULT_COLOR = "#FFFFFF"
 // Game.DEFAULT_RADIUS = Math.sqrt((((this.DIM_X * this.DIM_Y)/4)/this.numAsteroids)/Math.PI)
 Game.DEFAULT_RADIUS = 50
 Game.SHIPCOLOR = "#FE2E2E"
@@ -82,6 +82,7 @@ Game.prototype.checkCollisions = function () {
           this.lives -= 1
           if (this.lives < 1) {
             clearInterval(window.interval)
+            $(".stats").append("<button class='new-game'>New Game!</button>")
           }
           playerObjs[j].relocate()
 

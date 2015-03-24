@@ -4,17 +4,26 @@
 <head>
   <title>Angela Dobbs Page</title>
 
-  <style>
-    html, body, canvas {
-      padding: 0px;
-      margin: 0px;
-    }
-  </style>
+
 </head>
 
-<body>
+<body class="group">
+  <div class="game-canvas group">
+
 
   <canvas id="game-canvas"></canvas>
+  <h1>Asteroids!</h1>
+  <section class="info-sidebar group">
+
+    <ul class="stats">
+
+    </ul>
+    <span class="instructions">
+    </span>
+
+  </section>
+</div>
+
   <script src="jquery-2.1.1.js"></script>
 <script src = game.js> </script>
 <script src = gameView.js> </script>
@@ -29,8 +38,8 @@
 <script>
   var canvasEl = document.getElementById("game-canvas");
 
-  canvasEl.height = 800;
-  canvasEl.width = 1200;
+  canvasEl.height = 600;
+  canvasEl.width = 900;
 
   var game = new Asteroids.Game(canvasEl.width, canvasEl.height, 10)
   new Asteroids.GameView(canvasEl, game).start()

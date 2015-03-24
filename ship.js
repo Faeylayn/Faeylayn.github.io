@@ -15,7 +15,7 @@ var Ship = Asteroids.Ship = function(game) {
   this.speed = 0;
   this.fired = false;
   this.invuln = false;
-
+  this.relocate()
 };
 
 Asteroids.Util.inherits(movingObject, Ship);

@@ -1,6 +1,71 @@
-#game-canvas {
-  background: black;
-  border: 1px solid white;
-  margin: auto;
+/* --- RESET --- */
 
+html, body, header, nav, h1, a, ul, li,
+strong, main, section, img, div, h2, p,
+form, fieldset, label, input, textarea,
+button, article, footer, small, canvas {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  box-sizing: inherit;
+  text-align: inherit;
+  text-decoration: inherit;
+  vertical-align: inherit;
+  color: inherit;
+  background: transparent;
+}
+
+ul {
+  list-style: none;
+}
+
+input, textarea {
+  background: #ccc;
+  color: #000
+}
+
+
+
+/* --- CLEARFIX --- */
+
+.group:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+/* --- BOARD --- */
+
+.game-canvas {
+
+  margin: 150px;
+  float: left
+}
+
+#game-canvas {
+  background-image: url('http://wallpaper4me.com/images/wallpapers/asteroid_storm_train_w1.jpeg');
+  border: 2px solid black;
+  float: left
+}
+
+.info-sidebar {
+  float: left;
+  border: 2px solid black;
+  width: 900px
+
+}
+
+.stats {
+  float: left
+}
+
+.instructions {
+  float: right;
+  width: 500px;
+}
+
+body {
+  background: #aaa
 }
