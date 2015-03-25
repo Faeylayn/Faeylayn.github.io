@@ -77,6 +77,12 @@ Ship.prototype.fire = function () {
     setTimeout(function () {this.fired = false}.bind(this), 250)
     var new_bullet = new Bullet(this.angle, [this.xpos, this.ypos], this.game)
     this.game.bullets.push(new_bullet)
+    setTimeout(function() {
+      var idx = this.game.bullets.indexOf(new_bullet)
+      if (idx > 0) {
+        this.game.removeBullet(idx)
+      }
+    }.bind(this), 1500)
   }
 }
 

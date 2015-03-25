@@ -31,11 +31,9 @@ movingObject.prototype.move = function() {
 
   this.xpos += this.vel[0];
   this.ypos += this.vel[1];
-  if (this instanceof Bullet){
-    var pos = [this.xpos, this.ypos]
-  } else {
-    var pos = this.game.wrap(this.xpos, this.ypos, this.radius);
-  }
+
+  var pos = this.game.wrap(this.xpos, this.ypos, this.radius);
+
   this.xpos = pos[0];
   this.ypos = pos[1];
 };
