@@ -50,10 +50,12 @@ GameView.prototype.start = function() {
 
 GameView.prototype.bindKeyHandlers = function () {
   $(document).keydown(function(event){
+    event.preventDefault()
     this.parseKeycodeDown(event.keyCode)
   }.bind(this))
 
   $(document).keyup(function(event){
+    event.preventDefault()
     this.parseKeycodeUp(event.keyCode)
   }.bind(this))
 
