@@ -13,6 +13,12 @@
 		background: #1c1d26;
 	}
 
+	.group:after {
+		content: "";
+		display: block;
+		clear: both;
+	}
+
 	body.is-loading *, body.is-loading *:before, body.is-loading *:after {
 		-moz-animation: none !important;
 		-webkit-animation: none !important;
@@ -676,9 +682,35 @@
 			width: 100%;
 		}
 
+		.image.about {
+			display: block;
+			margin: 0 2em 2em 0;
+			width: 300px;
+			height: 300px;
+			float: left;
+		}
+
+		.image.about img {
+			width: 100%
+		}
+
 			.image.fit img {
 				width: 100%;
 			}
+
+		.actions li {
+			position: relative;
+			display: block;
+			float: left;
+			margin: 20px;
+			width: 75px;
+			height: 75px;
+		}
+
+	.skills img {
+		width: 100%;
+
+	}
 
 /* List */
 
@@ -1590,6 +1622,7 @@
 				#banner .content header p {
 					margin: 0.5em 0 0 0;
 					top: 0;
+					width: 400px;
 				}
 
 			#banner .content .image {
