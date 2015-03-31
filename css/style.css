@@ -678,8 +678,9 @@
 
 		.image.fit {
 			display: block;
-			margin: 0 0 2em 0;
+			margin: 2em 0 0em 0;
 			width: 100%;
+			max-width: 800px;
 		}
 
 		.image.about {
@@ -1696,3 +1697,17 @@
 				#footer .copyright li a {
 					color: inherit;
 				}
+
+
+.game-name {
+	font-size: 24px;
+	font-weight: bold;
+	color: white;
+}
+
+.game-features {
+	font-size: 18px;
+	font-weight: bold;
+	color: white;
+	padding: 20px 0 0 0;
+}
