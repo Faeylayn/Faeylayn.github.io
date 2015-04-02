@@ -2,6 +2,6 @@ Welcome to my personal website. Please feel free to check out my previous work a
 
 [Live link][site]
 
-[site]: angeladobbs.us
+[site]: www.angeladobbs.us
 
 Have a nice day!
